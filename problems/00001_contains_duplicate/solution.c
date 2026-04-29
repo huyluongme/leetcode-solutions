@@ -1,11 +1,11 @@
 /*
  * Problem    : 217. Contains Duplicate
  * Author     : Huy Luong <huyluongme.cs@gmail.com>
- * Created    : 
+ * Created    : April 26, 2026 
  * Language   : C
  * Difficulty : Easy
  * Tags       : Array, Hash Table, Sorting
- * Link       : https://leetcode.com/problems/contains-duplicate/
+ * Link       : https://leetcode.com/problems/contains-duplicate
  *
  * Time       : O(nlogn)
  * Space      : O(logn)

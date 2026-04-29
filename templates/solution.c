@@ -2,7 +2,7 @@
  * Problem    :
  * Author     : Huy Luong <huyluongme.cs@gmail.com>
  * Created    :
- * Language   :
+ * Language   : C
  * Difficulty :
  * Tags       :
  * Link       :
