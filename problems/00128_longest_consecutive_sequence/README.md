@@ -87,3 +87,96 @@ graph TD
 
 - **Time Complexity**: $O(N)$ on average and in the worst case, thanks to Fibonacci hashing distribution and the start-of-sequence filtering.
 - **Space Complexity**: $O(N)$ memory overhead to hold the `set` table and `uniq` array.
+
+---
+
+## 5. Step-by-Step Visualization
+
+Let's walk through the execution of the algorithm with a sample input:
+$$\text{nums} = [100, 4, 200, 1, 3, 2]$$
+
+### Step 1: Capacity & Parameter Initialization
+1. `numsSize = 6`.
+2. Compute table capacity `mod`:
+   * $6 \times 2 = 12$. The next power of 2 is **16**.
+   * Therefore, `mod = 16`, `mask = 15` (binary `1111`), and `shift = 28` (since $16 = 2^4 \implies 32 - 4 = 28$).
+3. Initialize a `set` array of size 16 filled with `INF`.
+4. Initialize an empty `uniq` vector.
+
+---
+
+### Step 2: Populating the Hash Table & Deduplication
+For each value in `nums`, we calculate `hash = (val * 2654435761u) >> 28`. If a collision occurs, we probe adjacent cells `(hash + 1) & 15`.
+
+*   **Insert `100`**:
+    *   $\text{hash} = (100 \times 2654435761) \gg 28 = 13$.
+    *   `set[13]` is `INF`.
+    *   Action: Set `set[13] = 100` and append `100` to `uniq`.
+*   **Insert `4`**:
+    *   $\text{hash} = (4 \times 2654435761) \gg 28 = 7$.
+    *   `set[7]` is `INF`.
+    *   Action: Set `set[7] = 4` and append `4` to `uniq`.
+*   **Insert `200`**:
+    *   $\text{hash} = (200 \times 2654435761) \gg 28 = 10$.
+    *   `set[10]` is `INF`.
+    *   Action: Set `set[10] = 200` and append `200` to `uniq`.
+*   **Insert `1`**:
+    *   $\text{hash} = (1 \times 2654435761) \gg 28 = 9$.
+    *   `set[9]` is `INF`.
+    *   Action: Set `set[9] = 1` and append `1` to `uniq`.
+*   **Insert `3`**:
+    *   $\text{hash} = (3 \times 2654435761) \gg 28 = 13$.
+    *   `set[13]` is `100` (**collision!**).
+    *   Probe cell: `(13 + 1) & 15 = 14`.
+    *   `set[14]` is `INF`.
+    *   Action: Set `set[14] = 3` and append `3` to `uniq`.
+*   **Insert `2`**:
+    *   $\text{hash} = (2 \times 2654435761) \gg 28 = 3$.
+    *   `set[3]` is `INF`.
+    *   Action: Set `set[3] = 2` and append `2` to `uniq`.
+
+**State of variables at the end of Insertion:**
+*   `uniq = [100, 4, 200, 1, 3, 2]`
+*   `set` bucket layout:
+    ```
+    Index:  0   1   2   3   4   5   6   7   8   9   10  11  12  13   14  15
+    Value: INF INF INF  2  INF INF INF  4  INF  1  200 INF INF 100   3  INF
+    ```
+
+---
+
+### Step 3: Scanning and Counting Sequences
+We iterate through `uniq` to look for sequence starts and count lengths:
+
+1.  **Process `val = 100`**:
+    *   Check `val - 1 = 99`. Its hash lookup finds `INF` (not in `set`).
+    *   **Decision**: `100` is a sequence start.
+    *   Scan upwards (`101`, `102`...): `101` lookup finds `INF`.
+    *   Sequence length: **`1`** (`[100]`). Update `best = 1`.
+2.  **Process `val = 4`**:
+    *   Check `val - 1 = 3`. Its hash lookup finds `3` at index 14.
+    *   **Decision**: `4` is **not** a sequence start. Skip it.
+3.  **Process `val = 200`**:
+    *   Check `val - 1 = 199`. Its hash lookup finds `INF`.
+    *   **Decision**: `200` is a sequence start.
+    *   Scan upwards (`201`...): `201` lookup finds `INF`.
+    *   Sequence length: **`1`** (`[200]`). Update `best = max(1, 1) = 1`.
+4.  **Process `val = 1`**:
+    *   Check `val - 1 = 0`. Its hash lookup finds `INF`.
+    *   **Decision**: `1` is a sequence start.
+    *   Scan upwards:
+        *   `2`: Found in `set[3]`.
+        *   `3`: Found in `set[14]`.
+        *   `4`: Found in `set[7]`.
+        *   `5`: Lookup finds `INF` (stop).
+    *   Sequence length: **`4`** (`[1, 2, 3, 4]`). Update `best = max(1, 4) = 4`.
+5.  **Process `val = 3`**:
+    *   Check `val - 1 = 2`. Its hash lookup finds `2` at index 3.
+    *   **Decision**: `3` is **not** a sequence start. Skip it.
+6.  **Process `val = 2`**:
+    *   Check `val - 1 = 1`. Its hash lookup finds `1` at index 9.
+    *   **Decision**: `2` is **not** a sequence start. Skip it.
+
+### Step 4: Termination
+The algorithm finishes iterating over `uniq` and returns `best = 4`.
+
