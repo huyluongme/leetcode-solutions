@@ -10,6 +10,7 @@ Add a new problem row like this:
 | 1   | [Two Sum](https://leetcode.com/problems/two-sum/) | [C, C++](./problems/00001_two_sum/) | Easy       |
 | 36  | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [C, C++](./problems/00036_valid_sudoku/) | Medium     |
 | 49  | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | [C, C++](./problems/00049_group_anagrams/) | Medium     |
+| 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [C, C++](./problems/00128_longest_consecutive_sequence/) | Medium     |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | [C, C++](./problems/00217_contains_duplicate/) | Easy       |
 | 238 | [Product of Array Except Self](https://leetcode.com/problems/products-of-array-discluding-self/) | [C, C++](./problems/00238_product_of_array_except_self/) | Medium     |
 | 242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | [C, C++](./problems/00242_valid_anagram/) | Easy       |
