@@ -8,6 +8,7 @@ Add a new problem row like this:
 | #   | Title                                  | Solution                      | Difficulty |
 |-----|----------------------------------------|-------------------------------|------------|
 | 1   | [Two Sum](https://leetcode.com/problems/two-sum/) | [C, C++](./problems/00001_two_sum/) | Easy       |
+| 20  | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | [C, C++](./problems/00020_valid_parentheses/) | Easy       |
 | 36  | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [C, C++](./problems/00036_valid_sudoku/) | Medium     |
 | 49  | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | [C, C++](./problems/00049_group_anagrams/) | Medium     |
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [C, C++](./problems/00128_longest_consecutive_sequence/) | Medium     |
