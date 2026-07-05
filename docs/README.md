@@ -18,6 +18,15 @@ Comprehensive guide to hash tables including:
 - Common operations and complexity analysis
 - Real-world use cases and best practices
 
+### [Stack Fundamentals](./stack/)
+Comprehensive guide to stacks including:
+- Introduction to stacks and basic LIFO concepts
+- C++ Standard Library `std::stack` (including changing underlying container)
+- Custom implementations (Array-based stack vs. Linked List-based stack)
+- Common operations and complexity analysis
+- Monotonic stacks and other common patterns
+- Real-world use cases and best practices
+
 ## 🎯 How to Use This Documentation
 
 1. **For Beginners**: Start with the Introduction sections to understand the fundamentals
