@@ -12,6 +12,7 @@ Add a new problem row like this:
 | 36  | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [C, C++](./problems/00036_valid_sudoku/) | Medium     |
 | 49  | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | [C, C++](./problems/00049_group_anagrams/) | Medium     |
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [C, C++](./problems/00128_longest_consecutive_sequence/) | Medium     |
+| 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [C, C++](./problems/00150_evaluate_reverse_polish_notation/) | Medium     |
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/) | [C, C++](./problems/00155_min_stack/) | Medium     |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | [C, C++](./problems/00217_contains_duplicate/) | Easy       |
 | 238 | [Product of Array Except Self](https://leetcode.com/problems/products-of-array-discluding-self/) | [C, C++](./problems/00238_product_of_array_except_self/) | Medium     |
