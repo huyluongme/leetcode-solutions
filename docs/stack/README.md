@@ -388,11 +388,28 @@ int main() {
 }
 ```
 
-### 2. Monotonic Stack (Next Greater Element)
+### 2. Monotonic Stack
 
-A **monotonic stack** maintains its elements in a sorted order (increasing or decreasing). It's used to solve "next greater/smaller element" problems in $O(n)$ time.
+A **monotonic stack** is a stack that maintains its elements in a sorted order (either strictly/non-strictly increasing or decreasing) from bottom to top. It is a powerful pattern used to solve range query problems—especially **Next Greater/Smaller Element (NGE)** or **Previous Greater/Smaller Element (PGE)**—in linear $O(n)$ time complexity, compared to the naive $O(n^2)$ approach.
 
-**Example: Next Greater Element**
+#### Types of Monotonic Stacks
+
+| Type | Order (Bottom to Top) | Push Condition (New element $x$) | Typical Use Case |
+|------|------------------------|----------------------------------|------------------|
+| **Monotonic Increasing** | Increasing (e.g., `1, 3, 5, 8`) | Pop elements $\ge x$ before pushing | Find the next smaller element |
+| **Monotonic Decreasing** | Decreasing (e.g., `8, 5, 3, 1`) | Pop elements $\le x$ before pushing | Find the next greater element |
+
+#### Key Concept & Logic
+When iterating through the array:
+1. If the current element violates the monotonic property, we pop elements from the stack until the property is restored.
+2. The popped elements have found their boundary (their "next greater/smaller" element), and we update their results.
+3. We then push the current element onto the stack.
+4. Since each element is pushed and popped at most once, the time complexity is amortized **$O(n)$**.
+
+---
+
+**Example A: Next Greater Element (Classic Pattern)**
+Find the next greater element for each element in an array. If none exists, return `-1`.
 
 ```cpp
 #include <stack>
@@ -433,6 +450,131 @@ int main() {
     return 0;
 }
 ```
+
+---
+
+**Example B: Daily Temperatures (LeetCode 739)**
+
+Given an array of integers `temperatures` representing the daily temperatures, return an array `answer` such that `answer[i]` is the number of days you have to wait after the $i$-th day to get a warmer temperature. If there is no future day for which this is possible, keep `answer[i] == 0` instead.
+
+*   **Intuition:** We need to find the distance to the next warmer day (the next greater element). We can use a **Monotonic Decreasing Stack**.
+*   **Indices on Stack:** Instead of storing temperature values directly, we store the **indices** of the days. This allows us to calculate the day difference using `current_index - stack_top_index`.
+
+##### Trace Walkthrough (`temperatures = [73, 74, 75, 71, 69, 72, 76, 73]`)
+
+| Index $i$ | Temp | Stack Status (before push) | Action & Pops | Result Array `ans` | Stack (after push) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **0** | 73 | `[]` | Empty. Push index `0`. | `[0,0,0,0,0,0,0,0]` | `[0]` |
+| **1** | 74 | `[0]` | `74 > temp[0]` (73). Pop `0`. `ans[0] = 1 - 0 = 1`. Push `1`. | `[1,0,0,0,0,0,0,0]` | `[1]` |
+| **2** | 75 | `[1]` | `75 > temp[1]` (74). Pop `1`. `ans[1] = 2 - 1 = 1`. Push `2`. | `[1,1,0,0,0,0,0,0]` | `[2]` |
+| **3** | 71 | `[2]` | `71 < temp[2]` (75). Push `3`. | `[1,1,0,0,0,0,0,0]` | `[2, 3]` |
+| **4** | 69 | `[2, 3]` | `69 < temp[3]` (71). Push `4`. | `[1,1,0,0,0,0,0,0]` | `[2, 3, 4]` |
+| **5** | 72 | `[2, 3, 4]` | `72 > temp[4]` (69). Pop `4`, `ans[4] = 5 - 4 = 1`. <br> `72 > temp[3]` (71). Pop `3`, `ans[3] = 5 - 3 = 2`. <br> `72 < temp[2]` (75). Push `5`. | `[1,1,0,2,1,0,0,0]` | `[2, 5]` |
+| **6** | 76 | `[2, 5]` | `76 > temp[5]` (72). Pop `5`, `ans[5] = 6 - 5 = 1`. <br> `76 > temp[2]` (75). Pop `2`, `ans[2] = 6 - 2 = 4`. Push `6`. | `[1,1,4,2,1,1,0,0]` | `[6]` |
+| **7** | 73 | `[6]` | `73 < temp[6]` (76). Push `7`. | `[1,1,4,2,1,1,0,0]` | `[6, 7]` |
+
+##### C++ Implementation (Using `std::stack`)
+Refer to the C++ implementation file: [solution.cpp](../../problems/00739_daily_temperatures/solution.cpp)
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <stack>
+
+using namespace std;
+
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        vector<int> ans;
+        for (int i = 0; i < temperatures.size(); ++i) {
+            ans.push_back(0);
+        }
+
+        stack<int> st; // Monotonic decreasing stack storing indices
+
+        for (int i = 0; i < temperatures.size(); ++i) {
+            // Pop elements smaller than current element and record their distance
+            while (!st.empty() && temperatures[st.top()] < temperatures[i]) {
+                ans[st.top()] = i - st.top();
+                st.pop();
+            }
+            st.push(i);
+        }
+
+        return ans;
+    }
+};
+
+int main()
+{
+    vector<int> temperatures = {73, 74, 75, 71, 69, 72, 76, 73};
+    Solution* sol = new Solution();
+    vector<int> result = sol->dailyTemperatures(temperatures);
+
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+
+    delete sol;
+    return 0;
+}
+```
+
+##### C Implementation (Using Array-based Stack)
+Refer to the C implementation file: [solution.c](../../problems/00739_daily_temperatures/solution.c)
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* dailyTemperatures(int* temperatures, int temperaturesSize, int* returnSize) {
+    int* ans = (int*)malloc(sizeof(int) * temperaturesSize);
+
+    for (int i = 0; i < temperaturesSize; ++i)
+        ans[i] = 0;
+
+    int* stack = (int*)malloc(sizeof(int) * temperaturesSize);
+    int top = -1;
+
+    for (int i = 0; i < temperaturesSize; ++i) {
+        // While stack is not empty and current temperature is greater than temperatures[stack[top]]
+        while (top != -1 && temperatures[stack[top]] < temperatures[i]) {
+            ans[stack[top]] = i - stack[top];
+            top--;
+        }
+        top++;
+        stack[top] = i;
+    }
+
+    *returnSize = temperaturesSize;
+
+    free(stack);
+    return ans;
+}
+
+int main()
+{
+    int temperatures[] = {73, 74, 75, 71, 69, 72, 76, 73};
+    int temperaturesSize = sizeof(temperatures) / sizeof(temperatures[0]);
+    int returnSize;
+    int* result = dailyTemperatures(temperatures, temperaturesSize, &returnSize);
+
+    for (int i = 0; i < returnSize; i++) {
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+
+    free(result);
+    return 0;
+}
+```
+
+---
 
 ### 3. Expression Evaluation & Conversion
 
