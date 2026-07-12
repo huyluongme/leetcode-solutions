@@ -19,3 +19,4 @@ Add a new problem row like this:
 | 242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | [C, C++](./problems/00242_valid_anagram/) | Easy       |
 | 271 | [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) | [C++](./problems/00271_encode_and_decode_strings/) | Medium     |
 | 347 | [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) | [C, C++](./problems/00347_top_k_frequent_elements/) | Medium     |
+| 739 | [Daily Temperatures](https://leetcode.com/problems/top-k-frequent-elements/) | [C, C++](./problems/00739_daily_temperatures/) | Medium     |
