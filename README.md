@@ -12,6 +12,7 @@ Add a new problem row like this:
 | 36  | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [C, C++](./problems/00036_valid_sudoku/) | Medium     |
 | 49  | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | [C, C++](./problems/00049_group_anagrams/) | Medium     |
 | 84  | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [C, C++](./problems/00084_largest_rectangle_in_histogram/) | Hard     |
+| 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [C, C++](./problems/00125_valid_palindrome/) | Easy       |
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [C, C++](./problems/00128_longest_consecutive_sequence/) | Medium     |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [C, C++](./problems/00150_evaluate_reverse_polish_notation/) | Medium     |
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/) | [C, C++](./problems/00155_min_stack/) | Medium     |
