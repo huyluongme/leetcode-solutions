@@ -15,6 +15,7 @@ Add a new problem row like this:
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [C, C++](./problems/00125_valid_palindrome/) | Easy       |
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [C, C++](./problems/00128_longest_consecutive_sequence/) | Medium     |
 | 150 | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) | [C, C++](./problems/00150_evaluate_reverse_polish_notation/) | Medium     |
+| 167 | [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [C, C++](./problems/00167_two_sum_II_input_array_is_sorted/) | Medium     |
 | 155 | [Min Stack](https://leetcode.com/problems/min-stack/) | [C, C++](./problems/00155_min_stack/) | Medium     |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | [C, C++](./problems/00217_contains_duplicate/) | Easy       |
 | 238 | [Product of Array Except Self](https://leetcode.com/problems/products-of-array-discluding-self/) | [C, C++](./problems/00238_product_of_array_except_self/) | Medium     |
