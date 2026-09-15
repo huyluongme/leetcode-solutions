@@ -27,6 +27,15 @@ Comprehensive guide to stacks including:
 - Monotonic stacks and other common patterns
 - Real-world use cases and best practices
 
+### [Two Pointer Fundamentals](./two_pointer/)
+Comprehensive guide to the two-pointer technique including:
+- Introduction and how the technique reduces $O(n^2)$ brute force to $O(n)$
+- Opposite-direction (converging) pointers for palindromes and sorted-array pair sums
+- Fast & slow pointers for in-place array compaction
+- Sorted-array k-sum pattern (fixed pointer + two pointers)
+- Greedy boundary shrinking and precomputed prefix/suffix bounds
+- Complexity analysis and best practices
+
 ## 🎯 How to Use This Documentation
 
 1. **For Beginners**: Start with the Introduction sections to understand the fundamentals
