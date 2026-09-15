@@ -12,6 +12,7 @@ Add a new problem row like this:
 | 15  | [3Sum](https://leetcode.com/problems/3sum/) | [C, C++](./problems/00015_3sum/) | Medium     |
 | 20  | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | [C, C++](./problems/00020_valid_parentheses/) | Easy       |
 | 36  | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [C, C++](./problems/00036_valid_sudoku/) | Medium     |
+| 42  | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | [C, C++](./problems/00042_trapping_rain_water/) | Hard     |
 | 49  | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | [C, C++](./problems/00049_group_anagrams/) | Medium     |
 | 84  | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [C, C++](./problems/00084_largest_rectangle_in_histogram/) | Hard     |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [C, C++](./problems/00125_valid_palindrome/) | Easy       |
