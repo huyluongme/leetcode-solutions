@@ -14,6 +14,7 @@ Add a new problem row like this:
 | 36  | [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) | [C, C++](./problems/00036_valid_sudoku/) | Medium     |
 | 42  | [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | [C, C++](./problems/00042_trapping_rain_water/) | Hard     |
 | 49  | [Group Anagrams](https://leetcode.com/problems/group-anagrams/) | [C, C++](./problems/00049_group_anagrams/) | Medium     |
+| 74  | [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) | [C, C++](./problems/00074_search_a_2d_matrix/) | Medium     |
 | 84  | [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) | [C, C++](./problems/00084_largest_rectangle_in_histogram/) | Hard     |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | [C, C++](./problems/00125_valid_palindrome/) | Easy       |
 | 128 | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) | [C, C++](./problems/00128_longest_consecutive_sequence/) | Medium     |
